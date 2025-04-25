@@ -1,0 +1,190 @@
+# Design System con Material MUI React y Storybook
+
+Crea un proyecto de React con la siguiente estructura para implementar un design system basado en Material MUI con Storybook:
+
+## Configuración inicial:
+
+```bash
+# Crear una aplicación React
+npx create-react-app design-system
+
+# Entrar al directorio
+cd design-system
+
+# Instalar dependencias necesarias
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+
+# Instalar Storybook
+npx storybook init
+```
+
+## Estructura de carpetas:
+
+```
+design-system/
+├── .storybook/           # Configuración de Storybook
+│   ├── main.js
+│   ├── preview.js
+│   └── manager.js
+├── public/
+├── src/
+│   ├── components/       # Componentes del design system
+│   │   ├── atoms/        # Componentes básicos (botones, inputs, iconos)
+│   │   │   ├── Button/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── Button.styles.js
+│   │   │   │   ├── Button.stories.jsx
+│   │   │   │   └── index.js
+│   │   │   ├── Input/
+│   │   │   ├── Typography/
+│   │   │   └── ...
+│   │   ├── molecules/    # Componentes compuestos (formularios, tarjetas)
+│   │   │   ├── Card/
+│   │   │   ├── Form/
+│   │   │   └── ...
+│   │   ├── organisms/    # Componentes complejos (navegación, paneles)
+│   │   │   ├── Navbar/
+│   │   │   ├── Sidebar/
+│   │   │   └── ...
+│   │   └── templates/    # Plantillas de página
+│   │       ├── Dashboard/
+│   │       └── ...
+│   ├── theme/            # Configuración del tema MUI
+│   │   ├── index.js      # Exportación del tema
+│   │   ├── palette.js    # Colores
+│   │   ├── typography.js # Tipografías
+│   │   └── components.js # Estilos por defecto para componentes
+│   ├── utils/            # Funciones utilitarias
+│   ├── App.js
+│   └── index.js
+└── package.json
+```
+
+## Configuración del tema MUI
+
+Crea un archivo `src/theme/index.js`:
+
+```javascript
+import { createTheme } from '@mui/material/styles';
+import palette from './palette';
+import typography from './typography';
+import components from './components';
+
+const theme = createTheme({
+  palette,
+  typography,
+  components,
+});
+
+export default theme;
+```
+
+## Configuración de Storybook
+
+Modifica `.storybook/preview.js` para incluir el tema de MUI:
+
+```javascript
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from '../src/theme';
+
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+};
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Story />
+    </ThemeProvider>
+  ),
+];
+```
+
+## Ejemplo de componente Button
+
+Crea `src/components/atoms/Button/Button.jsx`:
+
+```jsx
+import React from 'react';
+import MuiButton from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+
+const StyledButton = styled(MuiButton)(({ theme }) => ({
+  // Estilos personalizados aquí
+}));
+
+const Button = ({ children, variant = 'contained', color = 'primary', ...props }) => {
+  return (
+    <StyledButton variant={variant} color={color} {...props}>
+      {children}
+    </StyledButton>
+  );
+};
+
+export default Button;
+```
+
+Y su archivo Storybook `src/components/atoms/Button/Button.stories.jsx`:
+
+```jsx
+import React from 'react';
+import Button from './Button';
+
+export default {
+  title: 'Atoms/Button',
+  component: Button,
+  argTypes: {
+    variant: {
+      control: { type: 'select', options: ['contained', 'outlined', 'text'] },
+      defaultValue: 'contained',
+    },
+    color: {
+      control: { type: 'select', options: ['primary', 'secondary', 'error', 'warning', 'info', 'success'] },
+      defaultValue: 'primary',
+    },
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+  },
+};
+
+const Template = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'Botón Primario',
+  variant: 'contained',
+  color: 'primary',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: 'Botón Secundario',
+  variant: 'outlined',
+  color: 'secondary',
+};
+```
+
+## Scripts para package.json
+
+Añade estos scripts en tu package.json:
+
+```json
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "storybook": "start-storybook -p 6006 -s public",
+  "build-storybook": "build-storybook -s public"
+}
+```
