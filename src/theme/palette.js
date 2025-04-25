@@ -1,15 +1,110 @@
 
-export const palette = {
+const palette = {
+  mode: 'light',
   primary: {
-    main: '#1976d2',
-    light: '#42a5f5',
-    dark: '#1565c0',
+    main: '#283952',    
+    light: '#3A4C65',   
+    dark: '#1A2A45',    
+    contrastText: '#FDFDFD',
   },
   secondary: {
-    main: '#9c27b0',
-    light: '#ba68c8',
-    dark: '#7b1fa2',
+    main: '#14B2A9',    
+    light: '#6AD0CB',   
+    dark: '#0C6A85',    
+    contrastText: '#FDFDFD',
   },
+  info: {
+    main: '#4E57D3',    
+    light: '#698AFF',   
+    dark: '#161689',    
+    contrastText: '#FDFDFD',
+  },
+  success: {
+    main: '#18A19A',    
+    light: '#97DAD6',   
+    dark: '#074743',    
+    contrastText: '#FDFDFD',
+  },
+  warning: {
+    main: '#FFA000',
+    light: '#FFB333',
+    dark: '#CC8000',
+    contrastText: '#FDFDFD',
+  },
+  error: {
+    main: '#D32F2F',
+    light: '#EF5350',
+    dark: '#C62828',
+    contrastText: '#FDFDFD',
+  },
+  grey: {
+    50: '#F5F9FF',
+    100: '#ECF1F8',
+    200: '#E1E8F0',
+    300: '#C5CED9',
+    400: '#A4B0C1',
+    500: '#8392A9',
+    600: '#637590',
+    700: '#4A5A75',
+    800: '#36445C',
+    900: '#283952',
+    A100: '#D1D9E6',
+    A200: '#A4B0C1',
+    A400: '#4A5A75',
+    A700: '#283952',
+  },
+  text: {
+    primary: '#283952',
+    secondary: '#637590',
+    disabled: '#A4B0C1',
+  },
+  background: {
+    default: '#FDFDFD',
+    paper: '#F5F9FF',
+  },
+  divider: '#E1E8F0',
+  extended: {
+    indigo: {
+      M900: '#030778',
+      M800: '#161689',
+      M700: '#3639C6',
+      M600: '#4E57D3',
+      M500: '#4F55FD',
+      M400: '#698AFF',
+      M300: '#8DA6FF',
+      M200: '#A9BCFF',
+      M100: '#DBE3FF',
+      M50: '#ECF1FC',
+    },
+    cian: {
+      M900: '#0A1334',
+      M800: '#0B607D',
+      M700: '#137FA3',
+      M600: '#26325D',
+      M500: '#333E67',
+      M400: '#6DCEEF',
+      M300: '#6D789F',
+      M200: '#8D96BB',
+      M100: '#AEB5D0',
+      M50: '#D1D5E6',
+    },
+    green: {
+      M900: '#074743',
+      M800: '#0C6A85',
+      M700: '#0E827B',
+      M600: '#18A19A',
+      M500: '#14B2A9',
+      M400: '#6AD0CB',
+      M300: '#97DAD6',
+      M200: '#CAF2F0',
+      M100: '#E7FCFB',
+      M50: '#F4FDFC',
+    },
+    gradients: {
+      galactic: 'linear-gradient(90deg, #4E57D3 0%, #2EC4B6 100%)',
+      green: 'linear-gradient(90deg, #31AEBF 0%, #2FC0B8 100%)',
+    }
+  }
 };
 
 export default palette;

@@ -11,13 +11,28 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: theme.palette.background.default,
+      },
+      {
+        name: 'dark',
+        value: '#333',
+      },
+    ],
+  },
 };
 
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Story />
+      <div style={{ margin: '2rem' }}>
+        <Story />
+      </div>
     </ThemeProvider>
   ),
 ];
