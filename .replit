@@ -12,7 +12,7 @@ language = "nodejs"
 [deployment]
 deploymentTarget = "static"
 build = ["sh", "-c", "npm run build-storybook"]
-publicDir = "dist"
+publicDir = "storybook-static"
 run = ["sh", "-c", ""]
 
 [[ports]]
