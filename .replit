@@ -17,3 +17,14 @@ publicDir = "dist"
 [[ports]]
 localPort = 5173
 externalPort = 80
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Storybook"
+author = 41896650
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run storybook"
