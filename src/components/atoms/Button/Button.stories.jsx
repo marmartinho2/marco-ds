@@ -13,7 +13,7 @@ export default {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'error', 'warning', 'info', 'success'],
+      options: ['primary', 'secondary', 'tertiary'],
       defaultValue: 'primary',
     },
     size: {
@@ -29,39 +29,58 @@ export default {
       control: 'boolean',
       defaultValue: false,
     },
-    children: {
-      control: 'text',
-      defaultValue: 'Button',
-    },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args}>{args.children || 'Button'}</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Primary Button',
   variant: 'contained',
   color: 'primary',
+  children: 'Primary Button',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  children: 'Secondary Button',
   variant: 'contained',
   color: 'secondary',
+  children: 'Secondary Button',
+};
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  variant: 'contained',
+  color: 'tertiary',
+  children: 'Tertiary Button',
 };
 
 export const Outlined = Template.bind({});
 Outlined.args = {
-  children: 'Outlined Button',
   variant: 'outlined',
-  color: 'primary',
+  children: 'Outlined Button',
 };
 
 export const Text = Template.bind({});
 Text.args = {
-  children: 'Text Button',
   variant: 'text',
-  color: 'primary',
+  children: 'Text Button',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  size: 'small',
+  children: 'Small Button',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: 'large',
+  children: 'Large Button',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  children: 'Disabled Button',
 };

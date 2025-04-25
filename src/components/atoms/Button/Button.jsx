@@ -3,23 +3,51 @@ import React from 'react';
 import { Button as MuiButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const StyledButton = styled(MuiButton)(({ theme }) => ({
+const StyledButton = styled(MuiButton)(({ theme, color }) => ({
   textTransform: 'none',
-  borderRadius: theme.shape.borderRadius,
-  padding: '8px 16px',
+  borderRadius: '8px',
+  fontWeight: 500,
+  '&.MuiButton-sizeLarge': {
+    padding: '12px 24px',
+    fontSize: '1rem',
+  },
+  '&.MuiButton-sizeMedium': {
+    padding: '8px 16px',
+    fontSize: '0.875rem',
+  },
+  '&.MuiButton-sizeSmall': {
+    padding: '6px 12px',
+    fontSize: '0.75rem',
+  },
+  '&.MuiButton-contained': {
+    boxShadow: 'none',
+    '&:hover': {
+      boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+    },
+  },
+  '&.MuiButton-outlined': {
+    borderWidth: '1.5px',
+    '&:hover': {
+      borderWidth: '1.5px',
+    },
+  },
   '&.MuiButton-containedPrimary': {
     backgroundColor: theme.palette.primary.main,
+    color: '#fff',
     '&:hover': {
       backgroundColor: theme.palette.primary.dark,
     },
   },
-  '&.MuiButton-outlinedPrimary': {
-    borderColor: theme.palette.primary.main,
-    color: theme.palette.primary.main,
+  '&.MuiButton-containedSecondary': {
+    backgroundColor: theme.palette.secondary.main,
+    color: '#fff',
     '&:hover': {
-      backgroundColor: theme.palette.primary.light,
-      borderColor: theme.palette.primary.dark,
+      backgroundColor: theme.palette.secondary.dark,
     },
+  },
+  '&.Mui-disabled': {
+    backgroundColor: theme.palette.grey[200],
+    color: theme.palette.grey[400],
   },
 }));
 
@@ -30,6 +58,8 @@ const Button = ({
   size = 'medium',
   disabled = false,
   fullWidth = false,
+  startIcon,
+  endIcon,
   onClick,
   ...props
 }) => {
@@ -40,6 +70,8 @@ const Button = ({
       size={size}
       disabled={disabled}
       fullWidth={fullWidth}
+      startIcon={startIcon}
+      endIcon={endIcon}
       onClick={onClick}
       {...props}
     >
