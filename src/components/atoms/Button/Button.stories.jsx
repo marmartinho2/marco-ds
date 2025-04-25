@@ -120,3 +120,11 @@ Disabled.args = {
   disabled: true,
   children: 'Disabled Button',
 };
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  fullWidth: true,
+  variant: 'contained',
+  color: 'primary',
+  children: 'Full Width Button',
+};
