@@ -14,7 +14,7 @@ import {
   Box,
   Divider
 } from '@mui/material';
-import { ArrowBack } from '@mui/icons-material';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import theme from './theme';
 import { Button } from './components';
 
@@ -51,8 +51,8 @@ function App() {
   const components = [
     { 
       name: 'Button', 
-      category: 'Atoms', 
-      component: <Button>Sample Button</Button>,
+      category: 'Atoms',
+      states: ['Default', 'Hover', 'Active', 'Disabled', 'Loading'],
       variants: (
         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
           <Button variant="contained">Contained</Button>
@@ -83,7 +83,8 @@ function App() {
               <TableRow>
                 <TableCell sx={{ fontWeight: 'bold' }}>Category</TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>Component</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Preview</TableCell>
+                <TableCell sx={{ fontWeight: 'bold' }}>States</TableCell>
+                <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -91,12 +92,20 @@ function App() {
                 <TableRow 
                   key={index}
                   hover
-                  onClick={() => setSelectedComponent(item)}
                   sx={{ cursor: 'pointer' }}
                 >
                   <TableCell>{item.category}</TableCell>
                   <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.component}</TableCell>
+                  <TableCell>{item.states.join(', ')}</TableCell>
+                  <TableCell>
+                    <Button
+                      onClick={() => setSelectedComponent(item)}
+                      startIcon={<ArrowForward />}
+                      size="small"
+                    >
+                      Ver detalle
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
