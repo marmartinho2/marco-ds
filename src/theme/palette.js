@@ -1,4 +1,3 @@
-
 const palette = {
   mode: 'light',
   primary: {
@@ -62,49 +61,7 @@ const palette = {
     default: '#FDFDFD',
     paper: '#F5F9FF',
   },
-  divider: '#E1E8F0',
-  extended: {
-    indigo: {
-      M900: '#030778',
-      M800: '#161689',
-      M700: '#3639C6',
-      M600: '#4E57D3',
-      M500: '#4F55FD',
-      M400: '#698AFF',
-      M300: '#8DA6FF',
-      M200: '#A9BCFF',
-      M100: '#DBE3FF',
-      M50: '#ECF1FC',
-    },
-    cian: {
-      M900: '#0A1334',
-      M800: '#0B607D',
-      M700: '#137FA3',
-      M600: '#26325D',
-      M500: '#333E67',
-      M400: '#6DCEEF',
-      M300: '#6D789F',
-      M200: '#8D96BB',
-      M100: '#AEB5D0',
-      M50: '#D1D5E6',
-    },
-    green: {
-      M900: '#074743',
-      M800: '#0C6A85',
-      M700: '#0E827B',
-      M600: '#18A19A',
-      M500: '#14B2A9',
-      M400: '#6AD0CB',
-      M300: '#97DAD6',
-      M200: '#CAF2F0',
-      M100: '#E7FCFB',
-      M50: '#F4FDFC',
-    },
-    gradients: {
-      galactic: 'linear-gradient(90deg, #4E57D3 0%, #2EC4B6 100%)',
-      green: 'linear-gradient(90deg, #31AEBF 0%, #2FC0B8 100%)',
-    }
-  }
+  divider: '#E1E8F0'
 };
 
 export default palette;
