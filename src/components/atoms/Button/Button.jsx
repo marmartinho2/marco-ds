@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 const StyledButton = styled(MuiButton)(({ theme }) => ({
   textTransform: 'none',
   borderRadius: '8px',
-  fontWeight: 600,
+  fontWeight: 500,
   '&.MuiButton-sizeLarge': {
     padding: '12px 24px',
     fontSize: '1rem',
