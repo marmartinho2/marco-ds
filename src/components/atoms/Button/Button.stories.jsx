@@ -7,10 +7,31 @@ export default {
   component: Button,
   argTypes: {
     variant: {
-      control: { type: 'select', options: ['contained', 'outlined', 'text'] },
+      control: 'select',
+      options: ['contained', 'outlined', 'text'],
+      defaultValue: 'contained',
     },
     color: {
-      control: { type: 'select', options: ['primary', 'secondary', 'error', 'warning'] },
+      control: 'select',
+      options: ['primary', 'secondary', 'error', 'warning', 'info', 'success'],
+      defaultValue: 'primary',
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      defaultValue: 'medium',
+    },
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    fullWidth: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    children: {
+      control: 'text',
+      defaultValue: 'Button',
     },
   },
 };
@@ -27,6 +48,20 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: 'Secondary Button',
-  variant: 'outlined',
+  variant: 'contained',
   color: 'secondary',
+};
+
+export const Outlined = Template.bind({});
+Outlined.args = {
+  children: 'Outlined Button',
+  variant: 'outlined',
+  color: 'primary',
+};
+
+export const Text = Template.bind({});
+Text.args = {
+  children: 'Text Button',
+  variant: 'text',
+  color: 'primary',
 };
