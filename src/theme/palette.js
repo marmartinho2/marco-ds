@@ -1,15 +1,21 @@
 const palette = {
   mode: 'light',
   primary: {
-    main: '#283952',    
-    light: '#3A4C65',   
-    dark: '#1A2A45',    
+    main: '#18A19A',    // Verde
+    light: '#97DAD6',   
+    dark: '#074743',    
     contrastText: '#FDFDFD',
   },
   secondary: {
-    main: '#14B2A9',    
-    light: '#6AD0CB',   
-    dark: '#0C6A85',    
+    main: '#4E57D3',    // Indigo
+    light: '#698AFF',   
+    dark: '#161689',    
+    contrastText: '#FDFDFD',
+  },
+  tertiary: {
+    main: '#283952',    // Black/Dark
+    light: '#3A4C65',
+    dark: '#1A2A45',
     contrastText: '#FDFDFD',
   },
   info: {
