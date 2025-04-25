@@ -1,10 +1,7 @@
 
 const typography = {
   fontFamily: [
-    'Inter',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
+    'Open Sauce',
     'sans-serif'
   ].join(','),
   h1: {
