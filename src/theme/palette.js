@@ -68,6 +68,10 @@ const palette = {
     default: '#FDFDFD',
     paper: '#F5F9FF',
   },
+  action: {
+    disabled: '#91A2BB',
+    disabledBackground: '#EBF2FC',
+  },
   divider: '#E1E8F0'
 };
 
