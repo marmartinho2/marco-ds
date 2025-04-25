@@ -126,6 +126,4 @@ function App() {
   );
 }
 
-}
-
-export default App;p;
+export default App;
