@@ -6,7 +6,10 @@ const StyledButton = styled(MuiButton)(({ theme, fullWidth }) => ({
   textTransform: 'none',
   borderRadius: '8px',
   fontWeight: 500,
-  width: fullWidth ? '100%' : 'auto',
+  width: 'auto',
+  '&.MuiButton-fullWidth': {
+    width: '100%'
+  },
   '&.MuiButton-sizeLarge': {
     padding: '12px 24px',
     fontSize: '1rem',
