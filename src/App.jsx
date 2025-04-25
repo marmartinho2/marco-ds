@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import theme from './theme';
-import { Button } from './components';
+import Button from './components/atoms/Button/Button';
 
 function ComponentPreview({ component, onBack }) {
   return (
@@ -64,8 +64,10 @@ function ComponentPreview({ component, onBack }) {
         </Box>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h6" gutterBottom>Preview</Typography>
-          <Box sx={{ p: 2, border: '1px dashed grey' }}>
-            {component.component}
+          <Box sx={{ p: 2, border: '1px dashed grey', display: 'flex', gap: 2 }}>
+            <Button variant="contained">Primary</Button>
+            <Button variant="outlined">Secondary</Button>
+            <Button variant="text">Text</Button>
           </Box>
         </Box>
         <Box>
