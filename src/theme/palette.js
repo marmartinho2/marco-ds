@@ -7,10 +7,11 @@ const palette = {
     contrastText: '#FDFDFD',
   },
   secondary: {
-    main: '#4E57D3',    // Indigo
-    light: '#698AFF',   
-    dark: '#161689',    
+    main: '#4F55FD',    // Default state
+    light: '#7276FD',   // Hover state
+    dark: '#3F44CA',    // Active state
     contrastText: '#FDFDFD',
+    disabled: '#A6A9FE', // Disabled state
   },
   tertiary: {
     main: '#283952',    // Black/Dark
