@@ -65,7 +65,7 @@ const typography = {
     letterSpacing: '0.01071em'
   },
   button: {
-    fontWeight: 500,
+    fontWeight: 600,
     fontSize: '0.875rem',
     lineHeight: 1.75,
     letterSpacing: '0.02857em',
