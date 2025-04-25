@@ -2,7 +2,7 @@ const palette = {
   mode: 'light',
   primary: {
     main: '#18A19A',    // Verde
-    light: '#97DAD6',   
+    light: '#0E827B',   // Hover color
     dark: '#074743',    
     contrastText: '#FDFDFD',
   },
