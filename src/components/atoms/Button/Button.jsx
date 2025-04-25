@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Button as MuiButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const StyledButton = styled(MuiButton)(({ theme, color }) => ({
+const StyledButton = styled(MuiButton)(({ theme }) => ({
   textTransform: 'none',
   borderRadius: '8px',
   fontWeight: 500,
@@ -30,24 +29,6 @@ const StyledButton = styled(MuiButton)(({ theme, color }) => ({
     '&:hover': {
       borderWidth: '1.5px',
     },
-  },
-  '&.MuiButton-containedPrimary': {
-    backgroundColor: theme.palette.primary.main,
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: theme.palette.primary.dark,
-    },
-  },
-  '&.MuiButton-containedSecondary': {
-    backgroundColor: theme.palette.secondary.main,
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.dark,
-    },
-  },
-  '&.Mui-disabled': {
-    backgroundColor: theme.palette.grey[200],
-    color: theme.palette.grey[400],
   },
 }));
 

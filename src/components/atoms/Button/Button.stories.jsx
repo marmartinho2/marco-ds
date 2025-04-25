@@ -1,6 +1,8 @@
 
 import React from 'react';
 import Button from './Button';
+import AddIcon from '@mui/icons-material/Add';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default {
   title: 'Atoms/Button',
@@ -25,58 +27,92 @@ export default {
       control: 'boolean',
       defaultValue: false,
     },
-    fullWidth: {
-      control: 'boolean',
-      defaultValue: false,
-    },
   },
 };
 
 const Template = (args) => <Button {...args}>{args.children || 'Button'}</Button>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+// Primary Variants
+export const PrimaryContained = Template.bind({});
+PrimaryContained.args = {
   variant: 'contained',
   color: 'primary',
   children: 'Primary Button',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const PrimaryOutlined = Template.bind({});
+PrimaryOutlined.args = {
+  variant: 'outlined',
+  color: 'primary',
+  children: 'Primary Button',
+};
+
+export const PrimaryText = Template.bind({});
+PrimaryText.args = {
+  variant: 'text',
+  color: 'primary',
+  children: 'Primary Button',
+};
+
+// Secondary Variants
+export const SecondaryContained = Template.bind({});
+SecondaryContained.args = {
   variant: 'contained',
   color: 'secondary',
   children: 'Secondary Button',
 };
 
-export const Tertiary = Template.bind({});
-Tertiary.args = {
+export const SecondaryOutlined = Template.bind({});
+SecondaryOutlined.args = {
+  variant: 'outlined',
+  color: 'secondary',
+  children: 'Secondary Button',
+};
+
+export const SecondaryText = Template.bind({});
+SecondaryText.args = {
+  variant: 'text',
+  color: 'secondary',
+  children: 'Secondary Button',
+};
+
+// Tertiary Variants
+export const TertiaryContained = Template.bind({});
+TertiaryContained.args = {
   variant: 'contained',
   color: 'tertiary',
   children: 'Tertiary Button',
 };
 
-export const Outlined = Template.bind({});
-Outlined.args = {
+export const TertiaryOutlined = Template.bind({});
+TertiaryOutlined.args = {
   variant: 'outlined',
-  children: 'Outlined Button',
+  color: 'tertiary',
+  children: 'Tertiary Button',
 };
 
-export const Text = Template.bind({});
-Text.args = {
+export const TertiaryText = Template.bind({});
+TertiaryText.args = {
   variant: 'text',
-  children: 'Text Button',
+  color: 'tertiary',
+  children: 'Tertiary Button',
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  children: 'Small Button',
+// With Icons
+export const WithStartIcon = Template.bind({});
+WithStartIcon.args = {
+  variant: 'contained',
+  color: 'primary',
+  children: 'Start Icon',
+  startIcon: <AddIcon />,
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  children: 'Large Button',
+export const WithEndIcon = Template.bind({});
+WithEndIcon.args = {
+  variant: 'contained',
+  color: 'primary',
+  children: 'End Icon',
+  endIcon: <ArrowForwardIcon />,
 };
 
 export const Disabled = Template.bind({});
