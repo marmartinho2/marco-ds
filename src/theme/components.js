@@ -11,6 +11,7 @@ const components = {
       containedPrimary: {
         boxShadow: 'none',
         '&:hover': {
+          backgroundColor: '#0E827B',
           boxShadow: '0px 2px 4px rgba(40, 57, 82, 0.2)',
         },
       },
