@@ -17,6 +17,7 @@ run = ["sh", "-c", ""]
 
 [[ports]]
 localPort = 5173
+externalPort = 8000
 
 [[ports]]
 localPort = 6006
