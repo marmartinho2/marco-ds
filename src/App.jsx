@@ -31,6 +31,38 @@ function ComponentPreview({ component, onBack }) {
         </Typography>
         <Divider sx={{ my: 3 }} />
         <Box sx={{ mb: 4 }}>
+          <Typography variant="h6" gutterBottom>Variables/Props</Typography>
+          <TableContainer component={Paper} variant="outlined">
+            <Table size="small">
+              <TableHead>
+                <TableRow>
+                  <TableCell><strong>Prop</strong></TableCell>
+                  <TableCell><strong>Type</strong></TableCell>
+                  <TableCell><strong>Default</strong></TableCell>
+                  <TableCell><strong>Description</strong></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {Object.entries({
+                  variant: { type: 'string', default: 'contained', description: 'Button variant (contained, outlined, text)' },
+                  color: { type: 'string', default: 'primary', description: 'Button color (primary, secondary, error, etc)' },
+                  size: { type: 'string', default: 'medium', description: 'Button size (small, medium, large)' },
+                  disabled: { type: 'boolean', default: 'false', description: 'Disable button state' },
+                  fullWidth: { type: 'boolean', default: 'false', description: 'Make button take full width' },
+                  children: { type: 'node', default: '-', description: 'Button content' },
+                }).map(([prop, details]) => (
+                  <TableRow key={prop}>
+                    <TableCell>{prop}</TableCell>
+                    <TableCell>{details.type}</TableCell>
+                    <TableCell>{details.default}</TableCell>
+                    <TableCell>{details.description}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
+        <Box sx={{ mb: 4 }}>
           <Typography variant="h6" gutterBottom>Preview</Typography>
           <Box sx={{ p: 2, border: '1px dashed grey' }}>
             {component.component}
