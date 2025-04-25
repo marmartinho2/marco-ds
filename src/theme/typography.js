@@ -1,7 +1,9 @@
 
+import './fonts.css';
+
 const typography = {
   fontFamily: [
-    'Open Sauce',
+    '"Open Sauce"',
     'sans-serif'
   ].join(','),
   h1: {
