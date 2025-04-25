@@ -1,22 +1,22 @@
-
 import React from 'react';
+import {
+  Box,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+  Divider,
+} from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
-  TableRow, 
-  Paper, 
-  Typography, 
-  Box,
-  Divider
-} from '@mui/material';
-import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import theme from './theme';
-import Button from './components/atoms/Button/Button';
+import { ArrowForward, ArrowBack } from '@mui/icons-material';
+import * as ComponentLibrary from './components';
 
 function ComponentPreview({ component, onBack }) {
   return (
@@ -31,48 +31,20 @@ function ComponentPreview({ component, onBack }) {
         </Typography>
         <Divider sx={{ my: 3 }} />
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" gutterBottom>Variables/Props</Typography>
-          <TableContainer component={Paper} variant="outlined">
-            <Table size="small">
-              <TableHead>
-                <TableRow>
-                  <TableCell><strong>Prop</strong></TableCell>
-                  <TableCell><strong>Type</strong></TableCell>
-                  <TableCell><strong>Default</strong></TableCell>
-                  <TableCell><strong>Description</strong></TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {Object.entries({
-                  variant: { type: 'string', default: 'contained', description: 'Button variant (contained, outlined, text)' },
-                  color: { type: 'string', default: 'primary', description: 'Button color (primary, secondary, error, etc)' },
-                  size: { type: 'string', default: 'medium', description: 'Button size (small, medium, large)' },
-                  disabled: { type: 'boolean', default: 'false', description: 'Disable button state' },
-                  fullWidth: { type: 'boolean', default: 'false', description: 'Make button take full width' },
-                  children: { type: 'node', default: '-', description: 'Button content' },
-                }).map(([prop, details]) => (
-                  <TableRow key={prop}>
-                    <TableCell>{prop}</TableCell>
-                    <TableCell>{details.type}</TableCell>
-                    <TableCell>{details.default}</TableCell>
-                    <TableCell>{details.description}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <Typography variant="h6" gutterBottom>States</Typography>
+          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3 }}>
+            {component.states.map((state, index) => (
+              <Typography key={index} variant="body2" color="text.secondary">
+                • {state}
+              </Typography>
+            ))}
+          </Box>
         </Box>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h6" gutterBottom>Preview</Typography>
-          <Box sx={{ p: 2, border: '1px dashed grey', display: 'flex', gap: 2 }}>
-            <Button variant="contained">Primary</Button>
-            <Button variant="outlined">Secondary</Button>
-            <Button variant="text">Text</Button>
+          <Box sx={{ p: 2, border: '1px dashed grey' }}>
+            {component.preview}
           </Box>
-        </Box>
-        <Box>
-          <Typography variant="h6" gutterBottom>Variants</Typography>
-          {component.variants}
         </Box>
       </Paper>
     </Box>
@@ -83,18 +55,22 @@ function App() {
   const [selectedComponent, setSelectedComponent] = React.useState(null);
 
   const components = [
-    { 
-      name: 'Button', 
+    {
+      name: 'Button',
       category: 'Atoms',
-      states: ['Default', 'Hover', 'Active', 'Disabled', 'Loading'],
-      variants: (
+      states: ['Default', 'Hover', 'Active', 'Disabled'],
+      preview: (
         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-          <Button variant="contained">Contained</Button>
-          <Button variant="outlined">Outlined</Button>
-          <Button variant="text">Text</Button>
+          <ComponentLibrary.Button variant="contained" color="primary">Primary</ComponentLibrary.Button>
+          <ComponentLibrary.Button variant="contained" color="secondary">Secondary</ComponentLibrary.Button>
+          <ComponentLibrary.Button variant="contained" color="tertiary">Tertiary</ComponentLibrary.Button>
+          <ComponentLibrary.Button variant="outlined" color="primary">Outlined</ComponentLibrary.Button>
+          <ComponentLibrary.Button variant="text" color="primary">Text</ComponentLibrary.Button>
+          <ComponentLibrary.Button disabled>Disabled</ComponentLibrary.Button>
         </Box>
-      )
+      ),
     },
+    // Add more components here as they are created
   ];
 
   if (selectedComponent) {
