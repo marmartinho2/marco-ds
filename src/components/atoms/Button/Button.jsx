@@ -124,9 +124,9 @@ Button.propTypes = {
   /** Ancho completo */
   fullWidth: PropTypes.bool,
   /** Icono al inicio del botón */
-  startIcon: PropTypes.node,
+  startIcon: PropTypes.bool,
   /** Icono al final del botón */
-  endIcon: PropTypes.node,
+  endIcon: PropTypes.bool,
   /** Función onClick */
   onClick: PropTypes.func,
   /** Etiqueta aria para accesibilidad */

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -100,7 +99,7 @@ WithStartIcon.args = {
   variant: 'contained',
   color: 'primary',
   children: 'Add Item',
-  startIcon: <AddIcon />,
+  startIcon: true,
 };
 
 export const WithEndIcon = Template.bind({});
@@ -108,7 +107,7 @@ WithEndIcon.args = {
   variant: 'contained',
   color: 'primary',
   children: 'Next Step',
-  endIcon: <ArrowForwardIcon />,
+  endIcon: true,
 };
 
 // Estados Especiales
