@@ -72,25 +72,25 @@ function MyComponent() {
 const Template = (args) => <Button {...args} />;
 
 // Variantes Primary
-export const PrimaryContained = Template.bind({});
-PrimaryContained.args = {
+export const Filled = Template.bind({});
+Filled.args = {
   variant: 'contained',
   color: 'primary',
-  children: 'Primary Button',
+  children: 'Filled Button',
 };
 
-export const PrimaryOutlined = Template.bind({});
-PrimaryOutlined.args = {
+export const Outlined = Template.bind({});
+Outlined.args = {
   variant: 'outlined',
   color: 'primary',
-  children: 'Primary Button',
+  children: 'Outlined Button',
 };
 
-export const PrimaryText = Template.bind({});
-PrimaryText.args = {
+export const Text = Template.bind({});
+Text.args = {
   variant: 'text',
   color: 'primary',
-  children: 'Primary Button',
+  children: 'Text Button',
 };
 
 // Variantes con Iconos
