@@ -123,10 +123,10 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** Ancho completo */
   fullWidth: PropTypes.bool,
-  /** Icono al inicio del botón */
-  startIcon: PropTypes.node,
-  /** Icono al final del botón */
-  endIcon: PropTypes.node,
+  /** Mostrar icono al inicio del botón */
+  startIcon: PropTypes.bool,
+  /** Mostrar icono al final del botón */
+  endIcon: PropTypes.bool,
   /** Función onClick */
   onClick: PropTypes.func,
   /** Etiqueta aria para accesibilidad */
