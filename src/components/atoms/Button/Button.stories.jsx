@@ -94,20 +94,29 @@ Text.args = {
 };
 
 // Variantes con Iconos
-export const WithStartIcon = Template.bind({});
-WithStartIcon.args = {
+export const FillWithStartIcon = Template.bind({});
+FillWithStartIcon.args = {
   variant: 'fill',
   color: 'secondary',
   children: 'Add Item',
-  startIcon: true,
+  fillStartIcon: true,
 };
 
-export const WithEndIcon = Template.bind({});
-WithEndIcon.args = {
-  variant: 'fill',
+export const OutlinedWithEndIcon = Template.bind({});
+OutlinedWithEndIcon.args = {
+  variant: 'outlined',
   color: 'secondary',
   children: 'Next Step',
-  endIcon: true,
+  outlinedEndIcon: true,
+};
+
+export const TextWithBothIcons = Template.bind({});
+TextWithBothIcons.args = {
+  variant: 'text',
+  color: 'secondary',
+  children: 'Navigate',
+  textStartIcon: true,
+  textEndIcon: true,
 };
 
 // Estados Especiales
