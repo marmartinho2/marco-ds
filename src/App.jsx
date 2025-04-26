@@ -51,34 +51,10 @@ function ComponentPreview({ component, onBack }) {
   );
 }
 
-import Button from './components/atoms/Button/Button';
-
 function App() {
-  return (
-    <div style={{ padding: '20px', display: 'flex', gap: '10px', flexDirection: 'column' }}>
-      <h2>Botones Primarios</h2>
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <Button variant="fill" color="primary">Fill</Button>
-        <Button variant="outlined" color="primary">Outlined</Button>
-        <Button variant="text" color="primary">Text</Button>
-      </div>
+  const [selectedComponent, setSelectedComponent] = React.useState(null);
 
-      <h2>Botones Secundarios</h2>
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <Button variant="fill" color="secondary">Fill</Button>
-        <Button variant="outlined" color="secondary">Outlined</Button>
-        <Button variant="text" color="secondary">Text</Button>
-      </div>
-
-      <h2>Botones Terciarios</h2>
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <Button variant="contained" color="tertiary">Contained</Button>
-        <Button variant="outlined" color="tertiary">Outlined</Button>
-        <Button variant="text" color="tertiary">Text</Button>
-      </div>
-    </div>
-  );
-}
+  const components = [
     {
       name: 'Button',
       category: 'Atoms',

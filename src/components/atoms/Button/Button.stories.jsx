@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Button from './Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -6,132 +7,124 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 export default {
   title: 'Atoms/Button',
   component: Button,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: `
-### Componente Button
-
-Un botón versátil y accesible que soporta múltiples variantes, colores y tamaños.
-Diseñado para ser consistente con el sistema de diseño y fácilmente personalizable.
-
-#### Uso
-
-\`\`\`jsx
-import { Button } from './components/atoms';
-
-function MyComponent() {
-  return (
-    <Button 
-      variant="contained"
-      color="primary"
-      onClick={() => console.log('Clicked!')}
-    >
-      Click me
-    </Button>
-  );
-}
-\`\`\`
-        `,
-      },
-    },
-  },
   argTypes: {
     variant: {
       control: 'select',
-      options: ['fill', 'outlined', 'text'],
-      defaultValue: 'fill',
-      description: 'Estilo visual del botón',
+      options: ['contained', 'outlined', 'text'],
+      defaultValue: 'contained',
     },
     color: {
       control: 'select',
-      options: ['secondary', 'tertiary'],
-      defaultValue: 'secondary',
-      description: 'Color del botón según la paleta de colores',
+      options: ['primary', 'secondary', 'tertiary'],
+      defaultValue: 'primary',
     },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
       defaultValue: 'medium',
-      description: 'Tamaño del botón',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
-      description: 'Estado deshabilitado del botón',
-    },
-    fullWidth: {
-      control: 'boolean',
-      defaultValue: false,
-      description: 'Si el botón debe ocupar todo el ancho disponible',
     },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args}>{args.children || 'Button'}</Button>;
 
-// Variantes Primary
-export const Fill = Template.bind({});
-Fill.args = {
-  variant: 'fill',
-  color: 'secondary',
-  children: 'Fill Button',
+// Primary Variants
+export const PrimaryContained = Template.bind({});
+PrimaryContained.args = {
+  variant: 'contained',
+  color: 'primary',
+  children: 'Primary Button',
 };
 
-export const Outlined = Template.bind({});
-Outlined.args = {
+export const PrimaryOutlined = Template.bind({});
+PrimaryOutlined.args = {
+  variant: 'outlined',
+  color: 'primary',
+  children: 'Primary Button',
+};
+
+export const PrimaryText = Template.bind({});
+PrimaryText.args = {
+  variant: 'text',
+  color: 'primary',
+  children: 'Primary Button',
+};
+
+// Secondary Variants
+export const SecondaryContained = Template.bind({});
+SecondaryContained.args = {
+  variant: 'contained',
+  color: 'secondary',
+  children: 'Secondary Button',
+};
+
+export const SecondaryOutlined = Template.bind({});
+SecondaryOutlined.args = {
   variant: 'outlined',
   color: 'secondary',
-  children: 'Outlined Button',
+  children: 'Secondary Button',
 };
 
-export const Text = Template.bind({});
-Text.args = {
+export const SecondaryText = Template.bind({});
+SecondaryText.args = {
   variant: 'text',
   color: 'secondary',
-  children: 'Text Button',
+  children: 'Secondary Button',
 };
 
-// Variantes con Iconos
-export const FillWithStartIcon = Template.bind({});
-FillWithStartIcon.args = {
-  variant: 'fill',
-  color: 'secondary',
-  children: 'Add Item',
-  fillStartIcon: true,
+// Tertiary Variants
+export const TertiaryContained = Template.bind({});
+TertiaryContained.args = {
+  variant: 'contained',
+  color: 'tertiary',
+  children: 'Tertiary Button',
 };
 
-export const OutlinedWithEndIcon = Template.bind({});
-OutlinedWithEndIcon.args = {
+export const TertiaryOutlined = Template.bind({});
+TertiaryOutlined.args = {
   variant: 'outlined',
-  color: 'secondary',
-  children: 'Next Step',
-  outlinedEndIcon: true,
+  color: 'tertiary',
+  children: 'Tertiary Button',
 };
 
-export const TextWithBothIcons = Template.bind({});
-TextWithBothIcons.args = {
+export const TertiaryText = Template.bind({});
+TertiaryText.args = {
   variant: 'text',
-  color: 'secondary',
-  children: 'Navigate',
-  textStartIcon: true,
-  textEndIcon: true,
+  color: 'tertiary',
+  children: 'Tertiary Button',
 };
 
-// Estados Especiales
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  fullWidth: true,
-  variant: 'fill',
-  color: 'secondary',
-  children: 'Full Width Button',
+// With Icons
+export const WithStartIcon = Template.bind({});
+WithStartIcon.args = {
+  variant: 'contained',
+  color: 'primary',
+  children: 'Start Icon',
+  startIcon: <AddIcon />,
+};
+
+export const WithEndIcon = Template.bind({});
+WithEndIcon.args = {
+  variant: 'contained',
+  color: 'primary',
+  children: 'End Icon',
+  endIcon: <ArrowForwardIcon />,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  variant: 'fill',
-  color: 'secondary',
   children: 'Disabled Button',
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  fullWidth: true,
+  variant: 'contained',
+  color: 'primary',
+  children: 'Full Width Button',
 };
