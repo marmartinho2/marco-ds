@@ -113,8 +113,8 @@ const Button = ({
 Button.propTypes = {
   /** Contenido del botón */
   children: PropTypes.node.isRequired,
-  /** Variante del botón: 'contained', 'outlined', o 'text' */
-  variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
+  /** Variante del botón: 'fill', 'outlined', o 'text' */
+  variant: PropTypes.oneOf(['fill', 'outlined', 'text']),
   /** Color del botón: 'primary', 'secondary', o 'tertiary' */
   color: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
   /** Tamaño del botón: 'small', 'medium', o 'large' */

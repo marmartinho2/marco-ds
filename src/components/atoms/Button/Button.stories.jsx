@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -41,14 +40,14 @@ function MyComponent() {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['contained', 'outlined', 'text'],
-      defaultValue: 'contained',
+      options: ['fill', 'outlined', 'text'],
+      defaultValue: 'fill',
       description: 'Estilo visual del botón',
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
-      defaultValue: 'primary',
+      options: ['secondary', 'tertiary'],
+      defaultValue: 'secondary',
       description: 'Color del botón según la paleta de colores',
     },
     size: {
@@ -73,40 +72,40 @@ function MyComponent() {
 const Template = (args) => <Button {...args} />;
 
 // Variantes Primary
-export const PrimaryContained = Template.bind({});
-PrimaryContained.args = {
-  variant: 'contained',
-  color: 'primary',
-  children: 'Primary Button',
+export const Fill = Template.bind({});
+Fill.args = {
+  variant: 'fill',
+  color: 'secondary',
+  children: 'Fill Button',
 };
 
-export const PrimaryOutlined = Template.bind({});
-PrimaryOutlined.args = {
+export const Outlined = Template.bind({});
+Outlined.args = {
   variant: 'outlined',
-  color: 'primary',
-  children: 'Primary Button',
+  color: 'secondary',
+  children: 'Outlined Button',
 };
 
-export const PrimaryText = Template.bind({});
-PrimaryText.args = {
+export const Text = Template.bind({});
+Text.args = {
   variant: 'text',
-  color: 'primary',
-  children: 'Primary Button',
+  color: 'secondary',
+  children: 'Text Button',
 };
 
 // Variantes con Iconos
 export const WithStartIcon = Template.bind({});
 WithStartIcon.args = {
-  variant: 'contained',
-  color: 'primary',
+  variant: 'fill',
+  color: 'secondary',
   children: 'Add Item',
   startIcon: true,
 };
 
 export const WithEndIcon = Template.bind({});
 WithEndIcon.args = {
-  variant: 'contained',
-  color: 'primary',
+  variant: 'fill',
+  color: 'secondary',
   children: 'Next Step',
   endIcon: true,
 };
@@ -115,15 +114,15 @@ WithEndIcon.args = {
 export const FullWidth = Template.bind({});
 FullWidth.args = {
   fullWidth: true,
-  variant: 'contained',
-  color: 'primary',
+  variant: 'fill',
+  color: 'secondary',
   children: 'Full Width Button',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  variant: 'contained',
-  color: 'primary',
+  variant: 'fill',
+  color: 'secondary',
   children: 'Disabled Button',
 };
