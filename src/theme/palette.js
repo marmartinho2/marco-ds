@@ -1,3 +1,4 @@
+
 const palette = {
   mode: 'light',
   primary: {
@@ -5,6 +6,9 @@ const palette = {
     light: '#0E827B',   // Hover color
     dark: '#074743',    
     contrastText: '#FDFDFD',
+    container: '#E6F5F4',
+    outlined: '#18A19A',
+    text: '#18A19A'
   },
   secondary: {
     main: '#4F55FD',    // Default state
@@ -12,12 +16,18 @@ const palette = {
     dark: '#3F44CA',    // Active state
     contrastText: '#FDFDFD',
     disabled: '#A6A9FE', // Disabled state
+    container: '#E8E9FF',
+    outlined: '#4F55FD',
+    text: '#4F55FD'
   },
   tertiary: {
     main: '#283952',    // Black/Dark
     light: '#3A4C65',
     dark: '#1A2A45',
     contrastText: '#FDFDFD',
+    container: '#E6E9EF',
+    outlined: '#283952',
+    text: '#283952'
   },
   info: {
     main: '#4E57D3',    
