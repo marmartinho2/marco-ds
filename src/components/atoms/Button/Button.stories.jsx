@@ -93,50 +93,6 @@ Text.args = {
   children: 'Text Button',
 };
 
-// Variantes Secondary
-export const SecondaryFilled = Template.bind({});
-SecondaryFilled.args = {
-  variant: 'contained',
-  color: 'secondary',
-  children: 'Secondary Filled',
-};
-
-export const SecondaryOutlined = Template.bind({});
-SecondaryOutlined.args = {
-  variant: 'outlined',
-  color: 'secondary',
-  children: 'Secondary Outlined',
-};
-
-export const SecondaryText = Template.bind({});
-SecondaryText.args = {
-  variant: 'text',
-  color: 'secondary',
-  children: 'Secondary Text',
-};
-
-// Variantes Tertiary
-export const TertiaryFilled = Template.bind({});
-TertiaryFilled.args = {
-  variant: 'contained',
-  color: 'tertiary',
-  children: 'Tertiary Filled',
-};
-
-export const TertiaryOutlined = Template.bind({});
-TertiaryOutlined.args = {
-  variant: 'outlined',
-  color: 'tertiary',
-  children: 'Tertiary Outlined',
-};
-
-export const TertiaryText = Template.bind({});
-TertiaryText.args = {
-  variant: 'text',
-  color: 'tertiary',
-  children: 'Tertiary Text',
-};
-
 // Variantes con Iconos
 export const WithStartIcon = Template.bind({});
 WithStartIcon.args = {
