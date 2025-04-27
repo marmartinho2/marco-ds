@@ -3,63 +3,71 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button as MuiButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import AddIcon from '@mui/icons-material/Add';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CircularProgress from '@mui/material/CircularProgress';
 
-/**
- * Componente Button personalizado que extiende MUI Button
- * con estilos y funcionalidades adicionales
- */
-const StyledButton = styled(MuiButton)(({ theme, fullWidth, size }) => ({
-  // Estilos base
+const StyledButton = styled(MuiButton)(({ theme, fullWidth, size, variant, color }) => ({
   textTransform: 'none',
   borderRadius: '8px',
   fontWeight: 500,
   width: fullWidth ? '100%' : 'auto',
   transition: 'all 0.2s ease-in-out',
-
+  
   // Tamaños
-  ...(size === 'large' && {
-    padding: '12px 24px',
-    fontSize: '1rem',
+  ...(size === 'small' && {
+    height: '38px',
+    padding: '8px 16px',
+    fontSize: '14px',
   }),
   ...(size === 'medium' && {
-    padding: '8px 16px',
-    fontSize: '0.875rem',
+    height: '44px',
+    padding: '12px 20px',
+    fontSize: '16px',
   }),
-  ...(size === 'small' && {
-    padding: '6px 12px',
-    fontSize: '0.75rem',
+  ...(size === 'large' && {
+    height: '56px',
+    padding: '16px 24px',
+    fontSize: '18px',
   }),
 
   // Variantes
-  '&.MuiButton-contained': {
-    boxShadow: 'none',
+  ...(variant === 'fill' && {
+    backgroundColor: theme.palette[color].main,
+    color: '#FFFFFF',
     '&:hover': {
-      boxShadow: theme.shadows[2],
+      backgroundColor: theme.palette[color].light,
     },
     '&:active': {
-      boxShadow: theme.shadows[4],
+      backgroundColor: theme.palette[color].dark,
     },
-  },
+  }),
 
-  '&.MuiButton-outlined': {
-    borderWidth: '1.5px',
+  ...(variant === 'outlined' && {
+    backgroundColor: 'transparent',
+    color: theme.palette[color].main,
+    border: `2px solid ${theme.palette[color].main}`,
     '&:hover': {
-      borderWidth: '1.5px',
-      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+      backgroundColor: theme.palette[color].container,
+      borderColor: theme.palette[color].light,
     },
-  },
+    '&:active': {
+      backgroundColor: theme.palette[color].container,
+      borderColor: theme.palette[color].dark,
+    },
+  }),
 
-  '&.MuiButton-text': {
+  ...(variant === 'text' && {
+    backgroundColor: 'transparent',
+    color: theme.palette[color].main,
     '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+      backgroundColor: theme.palette[color].container,
     },
-  },
+    '&:active': {
+      backgroundColor: theme.palette[color].container,
+    },
+  }),
 
-  // Estados
   '&.Mui-disabled': {
-    opacity: 0.6,
+    opacity: 0.5,
     cursor: 'not-allowed',
   },
 
@@ -82,32 +90,32 @@ const StyledButton = styled(MuiButton)(({ theme, fullWidth, size }) => ({
 
 const Button = ({
   children,
-  variant = 'contained',
+  variant = 'fill',
   color = 'primary',
   size = 'medium',
   disabled = false,
   fullWidth = false,
-  startIcon,
-  endIcon,
+  startIcon = false,
+  endIcon = false,
+  loading = false,
   onClick,
   ariaLabel,
   ...props
 }) => {
-  const StartIcon = startIcon ? AddIcon : null;
-  const EndIcon = endIcon ? ArrowForwardIcon : null;
+  const StartIcon = startIcon ? props.startIconComponent : null;
+  const EndIcon = endIcon ? props.endIconComponent : null;
+
   return (
     <StyledButton
       variant={variant}
       color={color}
       size={size}
-      disabled={disabled}
+      disabled={disabled || loading}
       fullWidth={fullWidth}
-      startIcon={startIcon}
-      endIcon={endIcon}
       onClick={onClick}
       aria-label={ariaLabel || (typeof children === 'string' ? children : undefined)}
       role="button"
-      startIcon={StartIcon && <StartIcon />}
+      startIcon={loading ? <CircularProgress size={20} color="inherit" /> : (StartIcon && <StartIcon />)}
       endIcon={EndIcon && <EndIcon />}
       {...props}
     >
@@ -117,26 +125,19 @@ const Button = ({
 };
 
 Button.propTypes = {
-  /** Contenido del botón */
   children: PropTypes.node.isRequired,
-  /** Variante del botón: 'contained', 'outlined', o 'text' */
-  variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
-  /** Color del botón: 'primary', 'secondary', o 'tertiary' */
+  variant: PropTypes.oneOf(['fill', 'outlined', 'text']),
   color: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
-  /** Tamaño del botón: 'small', 'medium', o 'large' */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Estado deshabilitado */
   disabled: PropTypes.bool,
-  /** Ancho completo */
   fullWidth: PropTypes.bool,
-  /** Icono al inicio del botón */
   startIcon: PropTypes.bool,
-  /** Icono al final del botón */
   endIcon: PropTypes.bool,
-  /** Función onClick */
+  loading: PropTypes.bool,
   onClick: PropTypes.func,
-  /** Etiqueta aria para accesibilidad */
   ariaLabel: PropTypes.string,
+  startIconComponent: PropTypes.elementType,
+  endIconComponent: PropTypes.elementType,
 };
 
 export default Button;
