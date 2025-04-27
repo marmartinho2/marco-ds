@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -8,144 +7,122 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+### Componente Button
+
+Un botón versátil y accesible que soporta múltiples variantes, colores y tamaños.
+Diseñado para ser consistente con el sistema de diseño y fácilmente personalizable.
+
+#### Uso
+
+\`\`\`jsx
+import { Button } from './components/atoms';
+
+function MyComponent() {
+  return (
+    <Button 
+      variant="contained"
+      color="primary"
+      onClick={() => console.log('Clicked!')}
+    >
+      Click me
+    </Button>
+  );
+}
+\`\`\`
+        `,
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
-      options: ['fill', 'outlined', 'text'],
-      defaultValue: 'fill',
+      options: ['contained', 'outlined', 'text'],
+      defaultValue: 'contained',
+      description: 'Estilo visual del botón',
     },
     color: {
       control: 'select',
       options: ['primary', 'secondary', 'tertiary'],
       defaultValue: 'primary',
+      description: 'Color del botón según la paleta de colores',
     },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
       defaultValue: 'medium',
+      description: 'Tamaño del botón',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
-    },
-    loading: {
-      control: 'boolean',
-      defaultValue: false,
+      description: 'Estado deshabilitado del botón',
     },
     fullWidth: {
       control: 'boolean',
       defaultValue: false,
+      description: 'Si el botón debe ocupar todo el ancho disponible',
     },
   },
 };
 
 const Template = (args) => <Button {...args} />;
 
-// Variantes Fill
-export const PrimaryFill = Template.bind({});
-PrimaryFill.args = {
-  variant: 'fill',
+// Variantes Primary
+export const Filled = Template.bind({});
+Filled.args = {
+  variant: 'contained',
   color: 'primary',
-  children: 'Primary Fill',
+  children: 'Filled Button',
 };
 
-export const SecondaryFill = Template.bind({});
-SecondaryFill.args = {
-  variant: 'fill',
-  color: 'secondary',
-  children: 'Secondary Fill',
-};
-
-export const TertiaryFill = Template.bind({});
-TertiaryFill.args = {
-  variant: 'fill',
-  color: 'tertiary',
-  children: 'Tertiary Fill',
-};
-
-// Variantes Outlined
-export const PrimaryOutlined = Template.bind({});
-PrimaryOutlined.args = {
+export const Outlined = Template.bind({});
+Outlined.args = {
   variant: 'outlined',
   color: 'primary',
-  children: 'Primary Outlined',
+  children: 'Outlined Button',
 };
 
-export const SecondaryOutlined = Template.bind({});
-SecondaryOutlined.args = {
-  variant: 'outlined',
-  color: 'secondary',
-  children: 'Secondary Outlined',
-};
-
-export const TertiaryOutlined = Template.bind({});
-TertiaryOutlined.args = {
-  variant: 'outlined',
-  color: 'tertiary',
-  children: 'Tertiary Outlined',
-};
-
-// Variantes Text
-export const PrimaryText = Template.bind({});
-PrimaryText.args = {
+export const Text = Template.bind({});
+Text.args = {
   variant: 'text',
   color: 'primary',
-  children: 'Primary Text',
+  children: 'Text Button',
 };
 
-export const SecondaryText = Template.bind({});
-SecondaryText.args = {
-  variant: 'text',
-  color: 'secondary',
-  children: 'Secondary Text',
-};
-
-export const TertiaryText = Template.bind({});
-TertiaryText.args = {
-  variant: 'text',
-  color: 'tertiary',
-  children: 'Tertiary Text',
-};
-
-// Estados especiales
+// Variantes con Iconos
 export const WithStartIcon = Template.bind({});
 WithStartIcon.args = {
-  variant: 'fill',
+  variant: 'contained',
   color: 'primary',
-  children: 'With Start Icon',
+  children: 'Add Item',
   startIcon: true,
-  startIconComponent: AddIcon,
 };
 
 export const WithEndIcon = Template.bind({});
 WithEndIcon.args = {
-  variant: 'fill',
+  variant: 'contained',
   color: 'primary',
-  children: 'With End Icon',
+  children: 'Next Step',
   endIcon: true,
-  endIconComponent: ArrowForwardIcon,
 };
 
-export const Loading = Template.bind({});
-Loading.args = {
-  variant: 'fill',
+// Estados Especiales
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  fullWidth: true,
+  variant: 'contained',
   color: 'primary',
-  children: 'Loading',
-  loading: true,
+  children: 'Full Width Button',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  variant: 'fill',
+  disabled: true,
+  variant: 'contained',
   color: 'primary',
   children: 'Disabled Button',
-  disabled: true,
-};
-
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  variant: 'fill',
-  color: 'primary',
-  children: 'Full Width Button',
-  fullWidth: true,
 };
