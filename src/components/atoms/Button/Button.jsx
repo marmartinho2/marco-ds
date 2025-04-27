@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button as MuiButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import AddIcon from '@mui/icons-material/Add';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 /**
  * Componente Button personalizado que extiende MUI Button
@@ -91,6 +93,8 @@ const Button = ({
   ariaLabel,
   ...props
 }) => {
+  const StartIcon = startIcon ? AddIcon : null;
+  const EndIcon = endIcon ? ArrowForwardIcon : null;
   return (
     <StyledButton
       variant={variant}
@@ -103,6 +107,8 @@ const Button = ({
       onClick={onClick}
       aria-label={ariaLabel || (typeof children === 'string' ? children : undefined)}
       role="button"
+      startIcon={StartIcon && <StartIcon />}
+      endIcon={EndIcon && <EndIcon />}
       {...props}
     >
       {children}
