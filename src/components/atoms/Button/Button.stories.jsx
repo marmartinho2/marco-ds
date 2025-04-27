@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Button from './Button';
 import AddIcon from '@mui/icons-material/Add';
@@ -71,29 +72,73 @@ function MyComponent() {
 
 const Template = (args) => <Button {...args} />;
 
-// Variantes Primary
-export const Filled = Template.bind({});
-Filled.args = {
+// Primary Variants
+export const PrimaryFilled = Template.bind({});
+PrimaryFilled.args = {
   variant: 'contained',
   color: 'primary',
-  children: 'Filled Button',
+  children: 'Primary Filled',
 };
 
-export const Outlined = Template.bind({});
-Outlined.args = {
+export const PrimaryOutlined = Template.bind({});
+PrimaryOutlined.args = {
   variant: 'outlined',
   color: 'primary',
-  children: 'Outlined Button',
+  children: 'Primary Outlined',
 };
 
-export const Text = Template.bind({});
-Text.args = {
+export const PrimaryText = Template.bind({});
+PrimaryText.args = {
   variant: 'text',
   color: 'primary',
-  children: 'Text Button',
+  children: 'Primary Text',
 };
 
-// Variantes con Iconos
+// Secondary Variants
+export const SecondaryFilled = Template.bind({});
+SecondaryFilled.args = {
+  variant: 'contained',
+  color: 'secondary',
+  children: 'Secondary Filled',
+};
+
+export const SecondaryOutlined = Template.bind({});
+SecondaryOutlined.args = {
+  variant: 'outlined',
+  color: 'secondary',
+  children: 'Secondary Outlined',
+};
+
+export const SecondaryText = Template.bind({});
+SecondaryText.args = {
+  variant: 'text',
+  color: 'secondary',
+  children: 'Secondary Text',
+};
+
+// Tertiary Variants
+export const TertiaryFilled = Template.bind({});
+TertiaryFilled.args = {
+  variant: 'contained',
+  color: 'tertiary',
+  children: 'Tertiary Filled',
+};
+
+export const TertiaryOutlined = Template.bind({});
+TertiaryOutlined.args = {
+  variant: 'outlined',
+  color: 'tertiary',
+  children: 'Tertiary Outlined',
+};
+
+export const TertiaryText = Template.bind({});
+TertiaryText.args = {
+  variant: 'text',
+  color: 'tertiary',
+  children: 'Tertiary Text',
+};
+
+// Variants with Icons
 export const WithStartIcon = Template.bind({});
 WithStartIcon.args = {
   variant: 'contained',
@@ -110,7 +155,7 @@ WithEndIcon.args = {
   endIcon: true,
 };
 
-// Estados Especiales
+// Special States
 export const FullWidth = Template.bind({});
 FullWidth.args = {
   fullWidth: true,
