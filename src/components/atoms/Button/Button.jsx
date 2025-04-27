@@ -59,7 +59,7 @@ const StyledButton = styled(MuiButton)(({ theme, fullWidth, size }) => ({
 
   // Estados
   '&.Mui-disabled': {
-    opacity: 0.6,
+    color: '#91A2BB',
     cursor: 'not-allowed',
   },
 
