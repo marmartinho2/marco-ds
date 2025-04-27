@@ -14,7 +14,7 @@ const StyledButton = styled(MuiButton)(({ theme, fullWidth, size }) => ({
   // Estilos base
   textTransform: 'none',
   borderRadius: '8px',
-  fontFamily: '"Open Sauce One", sans-serif',
+  fontFamily: 'Open Sauce One',
   fontWeight: 600,
   fontSize: '14px',
   width: fullWidth ? '100%' : 'auto',
